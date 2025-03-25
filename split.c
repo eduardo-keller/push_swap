@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/25 15:29:01 by ekeller-@st       #+#    #+#             */
+/*   Updated: 2025/03/25 16:18:01 by ekeller-@st      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push.h"
 
-static size_t	count_words(char const *s, char c)
+size_t	count_words(char const *s, char c)
 {
 	size_t	i;
 	size_t	words;
@@ -32,7 +44,7 @@ static size_t	ft_word_len(char const *str, char c, size_t start)
 	return (w_len);
 }
 
-static void	ft_free(char **s, size_t current_word)
+void	ft_free_split(char **s, size_t current_word)
 {
 	while (current_word > 0)
 		free(s[current_word--]);
@@ -60,7 +72,7 @@ char	**ft_split(char const *s, char c)
 		word_len = ft_word_len(s, c, start);
 		split[current_word] = ft_substr(s, start, word_len);
 		if (split[current_word] == NULL)
-			ft_free (split, current_word);
+			ft_free_split (split, current_word);
 		if (split == NULL)
 			return (NULL);
 		start += word_len;
