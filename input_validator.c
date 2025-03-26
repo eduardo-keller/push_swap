@@ -6,7 +6,7 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:28:35 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/03/25 17:15:39 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/03/26 11:06:19 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	input_argc_validator(int argc, char **argv)
 	
 	if (argc == 2)
 		final_argc = count_words(argv[1], ' ');
-	else//validator_ultils.c
-		final_argc = argc;
+	else
+		final_argc = argc - 1;
 	return (final_argc);
 }
 
