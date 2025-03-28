@@ -5,8 +5,9 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra -g -I.
 
 # source code
-SRCS = 	main.c input_validator.c split.c split_utils.c \
-	 validator_utils.c stack_builder.c linked_lst_utils.c
+SRCS = 	main.c input_validator.c utils/split.c utils/split_utils.c \
+	 utils/validator_utils.c stack_builder.c linked_lst_utils.c \
+	 utils/atol.c 
 
 
 # objects

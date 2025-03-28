@@ -1,36 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   validator_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/25 15:28:52 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/03/27 12:46:09 by ekeller-@st      ###   ########.fr       */
+/*   Created: 2025/03/25 15:29:10 by ekeller-@st       #+#    #+#             */
+/*   Updated: 2025/03/27 10:34:52 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int	main(int argc, char **argv)
+int	ft_nbr(char *nbr)
 {
-	int		validator;
-	int		val_dup;
-	list	*lst_a;
-	list	*lst_b;
+	if (*nbr == '\0')
+		return (0);
+	if (*nbr == '-' || *nbr == '+')
+		nbr++;
+	if (*nbr == '\0')
+		return (0);
+	while (*nbr)
+	{
+		if (!(*nbr >= '0' && *nbr <= '9'))
+			return (0);
+		nbr++;
+	}
+	return (1);
+}
 
-	validator = input_validator(argc, argv);
-	if (validator == 0)
+int	input_item_validator(int argc, char ** argv)
+{
+	int	i;
+
+	i = 0;
+	while (i < argc)
 	{
-		write(2, "Error\n", 6);
-		return (0);
+		if (ft_nbr(argv[i]) == 0)
+			return (0);
+		i++;
 	}
-	lst_a = stack_builder(argc, argv);
-	val_dup = input_duplicates_validator(&lst_a);
-	if (val_dup == 0)
-	{
-		write(2, "Error\n", 6);
-		return (0);
-	}
-	final_algo(&lst_a, &lst_b);
+	return (1);
 }

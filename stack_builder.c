@@ -6,7 +6,7 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 11:28:54 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/03/26 17:13:16 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/03/27 12:40:34 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static list	*find_min_node(list *head)
 	min_value = INT_MAX;
 	while (head)
 	{
-		if (head->number < min_value)
+		if (head->number < min_value && head->index == 0)
 		{
 			min_value = head->number;
 			min_node = head;	
@@ -44,7 +44,7 @@ void	assign_index(list *head, int current_index)
 	}
 }
 
-static void	stack_a_builder(int argc, char **argv, list **lst)
+static void stack_a_builder(int argc, char **argv, list **lst)
 {
 	list	*new_node;
 	long	number;
@@ -57,13 +57,13 @@ static void	stack_a_builder(int argc, char **argv, list **lst)
 		if (number < INT_MIN || number > INT_MAX)
 		{
 			write (2, "Error\n", 6);
-			return (NULL);
+			exit (1);
 		}		
 		new_node = ft_lstnew((int)number, 'a');
 		if (!new_node)
 		{
 			write (2, "Error\n", 6);
-			return (NULL);
+			exit (1);
 		}
 		ft_lstadd_last(lst, new_node);
 		i++;
@@ -79,8 +79,9 @@ list *stack_builder(int argc, char **argv)
 	
 	lst = NULL;
 	final_argv = input_argv_validator(argc, argv);
-	if (!final_argc)
+	if (!final_argv)
 		return (NULL);
+	final_argc = input_argc_validator(argc, argv);
 	stack_a_builder(final_argc, final_argv, &lst);
 	if (argc == 2)
 		ft_free_split(final_argv, final_argc);

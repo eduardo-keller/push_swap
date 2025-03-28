@@ -6,7 +6,7 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:28:35 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/03/26 11:06:19 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/03/27 11:26:16 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,26 @@ int	input_validator(int argc, char **argv)
 	return (1);
 }
 
-int	input_item_validator(int argc, char ** argv)
+int	input_duplicates_validator(list **lst)
 {
-	int	i;
+	list	*current_node;
+	list	*iteration_node;
+	int		current_number;
 
-	i = 0;
-	while (i < argc)
+	if (!*lst || !lst)
+		return (0);
+	current_node = *lst;
+	while (current_node)
 	{
-		if (ft_nbr(argv[i]) == 0)
-			return (0);
-		i++;
+		iteration_node = current_node->next_number;
+		current_number = current_node->number;
+		while (iteration_node)
+		{
+			if (current_number == iteration_node->number)
+				return (0);
+			iteration_node = iteration_node->next_number;
+		}
+		current_node = current_node->next_number;
 	}
 	return (1);
 }

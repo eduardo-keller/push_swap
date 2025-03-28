@@ -6,7 +6,7 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 15:19:06 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/03/26 16:38:07 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/03/27 13:22:02 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_lstadd_last(list **lst, list *new_node)
 
 	if (!lst || !new_node)
 		return ;
-	if (lst == NULL)
+	if (*lst == NULL)
 	{
 		*lst = new_node;
 		return ;
@@ -44,4 +44,19 @@ void	ft_lstadd_last(list **lst, list *new_node)
 	while (last->next_number != NULL)
 		last = last->next_number;
 	last->next_number = new_node;
+}
+
+int	ft_lst_size(list *lst)
+{
+	list	*current;
+	int		size;
+
+	size = 0;
+	current = lst;
+	while (current != NULL)
+	{
+		size++;
+		current = current->next_number;
+	}
+	return (size);
 }
