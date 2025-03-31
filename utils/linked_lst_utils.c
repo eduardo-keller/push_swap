@@ -1,16 +1,26 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   linked_lst_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
+/*   By: ekeller- <ekeller-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 15:19:06 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/03/27 13:22:02 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/03/31 14:29:17 by ekeller-         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "push.h"
+
+//returns last node on list
+list	*ft_lstlast(list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next_number != NULL)
+		lst = lst->next_number;
+	return (lst);
+}
 
 list	*ft_lstnew(int number, char letter)
 {
@@ -59,4 +69,16 @@ int	ft_lst_size(list *lst)
 		current = current->next_number;
 	}
 	return (size);
+}
+
+void	ft_lstadd_front(list **lst, list *new_node)
+{
+	if (lst)
+	{
+		if (*lst)
+		{
+			new_node->next_number = *lst;
+			*lst = new_node;
+		}
+	}
 }

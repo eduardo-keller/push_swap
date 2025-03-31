@@ -6,7 +6,7 @@
 /*   By: ekeller- <ekeller-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 10:18:37 by ekeller-          #+#    #+#             */
-/*   Updated: 2025/03/29 13:11:44 by ekeller-         ###   ########.fr       */
+/*   Updated: 2025/03/30 16:42:31 by ekeller-         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -26,9 +26,9 @@ static void	update_target_pos_b(list **lst1, list **lst2)
     long    best_match;
     
     node1 = *lst1;
-    best_match = LONG_MIN;
     while (node1)
     {
+        best_match = LONG_MIN;
         node2 = *lst2;
         while (node2)
         {
@@ -81,15 +81,27 @@ static void	cal_cost_a(list **lst1, list **lst2) //little change
 //return node with lowest cost. 
 static list	*ft_init_a(list **lst1, list **lst2)
 {
+    list    *lower_cost;
+    
     update_pos(lst1);
     update_pos(lst2);
     update_target_pos_b(lst1, lst2);
     cal_cost_a(lst1, lst2);
+    lower_cost = get_lower_cost_node(lst1);
+    return (lower_cost);
 }
 
+//perform joint rotations ultil node or target node reachs top. perform individual
+//rotations until remaining node reaches position. push lower cost node to b.
 static void	ft_move_a(list **lst1, list **lst2, list *lower_cost_node)
 {
-    
+    if (lower_cost_node->is_above_center == 1 && lower_cost_node->next_number->is_above_center == 1)
+        perform_rr(lst2, lst1, lower_cost_node);
+    if (lower_cost_node->is_above_center == 0 && lower_cost_node->next_number->is_above_center == 1)
+        perform_rrr(lst2, lst1, lower_cost_node);
+    ft_finish_rotation(lst1, lower_cost_node);
+    ft_finish_rotation(lst2, lower_cost_node->target_pos);
+    px(lst1, lst2);
 }
 //push the first 2 nodes to B. Calculate targets and costs of pushing each
 //node from A to B and push node with smallest cost to B;

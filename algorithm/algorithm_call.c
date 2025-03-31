@@ -6,7 +6,7 @@
 /*   By: ekeller- <ekeller-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:58:40 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/03/29 11:04:45 by ekeller-         ###   ########.fr       */
+/*   Updated: 2025/03/31 12:19:22 by ekeller-         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -29,14 +29,15 @@ void	final_algorithm(list **lst_1, list **lst_2)
 	}
 	if (lst_size > 3);
 	{	
-		algo_case_3(lst_1);
+		algo_case_3(lst_1, lst_2);
 		return ;
 	}
 	return ;
 }
 
 //move elements to B reverse sorted until 3 elements left in A. order A.
-//move elements to A which will be almost sorted. perform final sorting rr. 
+//move elements to A which will be sorted but not necessarily in ascending order.
+//perform final sorting rr. 
 void	algo_case_3(list **lst1, list **lst2)
 {
 	list	*lower_cost_node;
@@ -67,7 +68,21 @@ void	algo_case_1(list **lst)
 
 void	algo_case_2(list **lst)
 {
-	
+	list	*first;
+	list	*second;
+	list	*third;
+
+	first = *lst;
+	second = first->next_number;
+	third = second->next_number;
+	if (first->index > second->index && first->index > third->index)
+		rx(lst);
+	if (second->index > first->index && second->index > third->index)
+		rrx(lst);
+	first = *lst;
+	second = first->next_number;
+	if (first->index > second->index)
+		sx(lst);
 }
 
 int	check_ordered(list *lst)
