@@ -6,7 +6,7 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:28:52 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/03/27 12:46:09 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/04/01 16:15:45 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	main(int argc, char **argv)
 {
 	int		validator;
 	int		val_dup;
-	list	*lst_a;
-	list	*lst_b;
+	t_list	*lst_a;
+	t_list	*lst_b;
 
 	validator = input_validator(argc, argv);
 	if (validator == 0)
@@ -32,5 +32,5 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	final_algo(&lst_a, &lst_b);
+	final_algorithm(&lst_a, &lst_b);
 }

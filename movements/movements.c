@@ -1,22 +1,22 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekeller- <ekeller-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 13:30:02 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/03/31 20:34:11 by ekeller-         ###   ########.fr       */
+/*   Updated: 2025/04/01 16:07:22 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "push.h"
 
-void	swap(list **lst)
+void	swap(t_list **lst)
 {
-	list	*tmp_head;
-	list	*tmp_second;
-	list	*tmp_third;
+	t_list	*tmp_head;
+	t_list	*tmp_second;
+	t_list	*tmp_third;
 
 	if (ft_lst_size(*lst) < 2)
 		return ;
@@ -32,12 +32,12 @@ void	swap(list **lst)
 		write(1, "sb\n", 3);
 }
 
-void	px(list **lst1, list **lst2)
+void	px(t_list **lst1, t_list **lst2)
 {
-	list	*new_top_lst1;
-	list	*new_top_lst2;
+	t_list	*new_top_lst1;
+	t_list	*new_top_lst2;
 	char	stack_letter;
-	
+
 	if (ft_lst_size(*lst1) == 0)
 		return ;
 	new_top_lst2 = *lst1;
@@ -56,11 +56,11 @@ void	px(list **lst1, list **lst2)
 		write (1, "pa\n", 3);
 }
 
-void	rx(list **lst)
+void	rx(t_list **lst)
 {
-	list	*head;
-	list	*new_head;
-	list	*last;
+	t_list	*head;
+	t_list	*new_head;
+	t_list	*last;
 
 	if (ft_lst_size(*lst) < 2)
 		return ;
@@ -76,10 +76,11 @@ void	rx(list **lst)
 		write (1, "rb\n", 3);
 }
 
-void	rrx(list **lst)
+void	rrx(t_list **lst)
 {
-	list	*new_head;
-	list	*new_last;
+	t_list	*new_head;
+	t_list	*new_last;
+
 	if (ft_lst_size(*lst) < 2)
 		return ;
 	new_last = *lst;

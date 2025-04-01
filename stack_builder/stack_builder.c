@@ -6,15 +6,15 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 11:28:54 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/03/27 12:40:34 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/04/01 15:13:45 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-static list	*find_min_node(list *head)
+static t_list	*find_min_node(t_list *head)
 {
-	list	*min_node;
+	t_list	*min_node;
 	int		min_value;
 
 	min_node = NULL;
@@ -24,16 +24,17 @@ static list	*find_min_node(list *head)
 		if (head->number < min_value && head->index == 0)
 		{
 			min_value = head->number;
-			min_node = head;	
+			min_node = head;
 		}
 		head = head->next_number;
 	}
 	return (min_node);
 }
 
-void	assign_index(list *head, int current_index)
+void	assign_index(t_list *head, int current_index)
 {
-	list	*min_node;
+	t_list	*min_node;
+
 	if (!head)
 		return ;
 	min_node = find_min_node(head);
@@ -44,13 +45,13 @@ void	assign_index(list *head, int current_index)
 	}
 }
 
-static void stack_a_builder(int argc, char **argv, list **lst)
+static void	stack_a_builder(int argc, char **argv, t_list **lst)
 {
-	list	*new_node;
+	t_list	*new_node;
 	long	number;
 	int		i;
 
-	i = 0;	
+	i = 0;
 	while (i < argc)
 	{
 		number = ft_atol (argv[i]);
@@ -71,12 +72,12 @@ static void stack_a_builder(int argc, char **argv, list **lst)
 	assign_index(*lst, 1);
 }
 
-list *stack_builder(int argc, char **argv)
+t_list	*stack_builder(int argc, char **argv)
 {
-	list	*lst;
+	t_list	*lst;
 	char	**final_argv;
 	int		final_argc;
-	
+
 	lst = NULL;
 	final_argv = input_argv_validator(argc, argv);
 	if (!final_argv)

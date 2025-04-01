@@ -6,7 +6,7 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:28:35 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/03/27 11:26:16 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/04/01 15:30:02 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	**input_argv_validator(int argc, char **argv)
 int	input_argc_validator(int argc, char **argv)
 {
 	int	final_argc;
-	
+
 	if (argc == 2)
 		final_argc = count_words(argv[1], ' ');
 	else
@@ -44,9 +44,9 @@ static void	need_free(int should_free, char **argv, int argc)
 
 int	input_validator(int argc, char **argv)
 {
-	char 	**final_argv;
-	int	final_argc;
-	int	should_free;
+	char	**final_argv;
+	int		final_argc;
+	int		should_free;
 
 	should_free = 0;
 	final_argv = input_argv_validator(argc, argv);
@@ -64,10 +64,10 @@ int	input_validator(int argc, char **argv)
 	return (1);
 }
 
-int	input_duplicates_validator(list **lst)
+int	input_duplicates_validator(t_list **lst)
 {
-	list	*current_node;
-	list	*iteration_node;
+	t_list	*current_node;
+	t_list	*iteration_node;
 	int		current_number;
 
 	if (!*lst || !lst)

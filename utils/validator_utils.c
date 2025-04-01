@@ -6,7 +6,7 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:29:10 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/03/27 10:34:52 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/04/01 15:07:25 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_nbr(char *nbr)
 	return (1);
 }
 
-int	input_item_validator(int argc, char ** argv)
+int	input_item_validator(int argc, char **argv)
 {
 	int	i;
 

@@ -5,9 +5,10 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra -g -I.
 
 # source code
-SRCS = 	main.c input_validator.c utils/split.c utils/split_utils.c \
-	 utils/validator_utils.c stack_builder.c linked_lst_utils.c \
-	 utils/atol.c 
+SRCS = 	main.c stack_builder/input_validator.c utils/split.c utils/split_utils.c utils/validator_utils.c stack_builder/stack_builder.c \
+		utils/linked_lst_utils.c utils/atol.c algorithm/algo_utils.c algorithm/algorithm_call.c algorithm/movements_call.c algorithm/prep_stack_a.c \
+		algorithm/prep_stack_b.c movements/movements_aggregated.c movements/movements.c 
+
 
 
 # objects

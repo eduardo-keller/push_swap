@@ -1,19 +1,19 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   linked_lst_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekeller- <ekeller-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 15:19:06 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/03/31 14:29:17 by ekeller-         ###   ########.fr       */
+/*   Updated: 2025/04/01 15:05:59 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "push.h"
 
-//returns last node on list
-list	*ft_lstlast(list *lst)
+//returns last node on t_list
+t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -22,10 +22,11 @@ list	*ft_lstlast(list *lst)
 	return (lst);
 }
 
-list	*ft_lstnew(int number, char letter)
+t_list	*ft_lstnew(int number, char letter)
 {
-	list	*new_lst;
-	new_lst = malloc(sizeof(list));
+	t_list	*new_lst;
+
+	new_lst = malloc(sizeof(t_list));
 	if (!new_lst)
 		return (0);
 	new_lst->number = number;
@@ -39,9 +40,9 @@ list	*ft_lstnew(int number, char letter)
 	return (new_lst);
 }
 
-void	ft_lstadd_last(list **lst, list *new_node)
+void	ft_lstadd_last(t_list **lst, t_list *new_node)
 {
-	list	*last;
+	t_list	*last;
 
 	if (!lst || !new_node)
 		return ;
@@ -56,9 +57,9 @@ void	ft_lstadd_last(list **lst, list *new_node)
 	last->next_number = new_node;
 }
 
-int	ft_lst_size(list *lst)
+int	ft_lst_size(t_list *lst)
 {
-	list	*current;
+	t_list	*current;
 	int		size;
 
 	size = 0;
@@ -71,7 +72,7 @@ int	ft_lst_size(list *lst)
 	return (size);
 }
 
-void	ft_lstadd_front(list **lst, list *new_node)
+void	ft_lstadd_front(t_list **lst, t_list *new_node)
 {
 	if (lst)
 	{

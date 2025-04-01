@@ -1,33 +1,33 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm.c                                        :+:      :+:    :+:   */
+/*   algorithm_call.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekeller- <ekeller-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:58:40 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/03/31 12:19:22 by ekeller-         ###   ########.fr       */
+/*   Updated: 2025/04/01 16:33:20 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "push.h"
 
-void	final_algorithm(list **lst_1, list **lst_2)
+void	final_algorithm(t_list **lst_1, t_list **lst_2)
 {
 	int	lst_size;
 
-	lst_size = ft_list_size(*lst_1);
-	if (lst_size == 2);
+	lst_size = ft_lst_size(*lst_1);
+	if (lst_size == 2)
 	{	
 		algo_case_1(lst_1);
 		return ;
 	}
-	if (lst_size == 3);
+	if (lst_size == 3)
 	{	
 		algo_case_2(lst_1);
 		return ;
 	}
-	if (lst_size > 3);
+	if (lst_size > 3)
 	{	
 		algo_case_3(lst_1, lst_2);
 		return ;
@@ -35,42 +35,42 @@ void	final_algorithm(list **lst_1, list **lst_2)
 	return ;
 }
 
-//move elements to B reverse sorted until 3 elements left in A. order A.
-//move elements to A which will be sorted but not necessarily in ascending order.
-//perform final sorting rr. 
-void	algo_case_3(list **lst1, list **lst2)
+//move elements to B reverse sorted until 3 elements left in A.
+//order A. move elements to A which will be sorted but not
+//necessarily in ascending order. perform final sorting rr. 
+void	algo_case_3(t_list **lst1, t_list **lst2)
 {
-	list	*lower_cost_node;
+	t_list	*lower_cost_node;
 
 	move_elems_to_b(lst1, lst2);
 	if (check_ordered(*lst1) == 0)
 		algo_case_2(lst1);
-	while (ft_lstsize(*lst2) != 0)
+	while (ft_lst_size(*lst2) != 0)
 	{
 		lower_cost_node = ft_init_b(lst1, lst2);
 		ft_move_b(lst1, lst2, lower_cost_node);
 	}
 	update_pos(lst1);
-	perform_final_ra_or_rra(lst1);
+	perform_final_ra_rra(lst1);
 }
 
-void	algo_case_1(list **lst)
+void	algo_case_1(t_list **lst)
 {
-	list	*current;
-	list	*next;
-	
+	t_list	*current;
+	t_list	*next;
+
 	current = *lst;
 	next = current->next_number;
-	if (current->index > next->index);
+	if (current->index > next->index)
 		swap(lst);
 	return ;
 }
 
-void	algo_case_2(list **lst)
+void	algo_case_2(t_list **lst)
 {
-	list	*first;
-	list	*second;
-	list	*third;
+	t_list	*first;
+	t_list	*second;
+	t_list	*third;
 
 	first = *lst;
 	second = first->next_number;
@@ -82,14 +82,14 @@ void	algo_case_2(list **lst)
 	first = *lst;
 	second = first->next_number;
 	if (first->index > second->index)
-		sx(lst);
+		swap(lst);
 }
 
-int	check_ordered(list *lst)
+int	check_ordered(t_list *lst)
 {
-	list	*current;
+	t_list	*current;
 
-	if (lst = NULL)
+	if (lst == NULL)
 		return (0);
 	current = lst;
 	while (current)
