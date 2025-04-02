@@ -6,7 +6,7 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 15:19:06 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/04/01 15:05:59 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/04/02 15:29:50 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new_node)
 	if (lst)
 	{
 		if (*lst)
-		{
 			new_node->next_number = *lst;
-			*lst = new_node;
-		}
+		*lst = new_node;
 	}
 }

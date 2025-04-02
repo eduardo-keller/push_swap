@@ -6,7 +6,7 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 10:18:37 by ekeller-          #+#    #+#             */
-/*   Updated: 2025/04/01 16:57:28 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/04/02 18:34:38 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ static void	cal_cost_a(t_list **lst1, t_list **lst2)
 		else
 			node->cost = ft_lst_size(*lst1) - \
 			node->position + node->target_pos->position;
+		node = node->next_number;
 	}
 }
 
@@ -104,10 +105,10 @@ static t_list	*ft_init_a(t_list **lst1, t_list **lst2)
 static void	ft_move_a(t_list **lst1, t_list **lst2, t_list *lower_cost_node)
 {
 	if (lower_cost_node->is_above_center == 1 && \
-		lower_cost_node->next_number->is_above_center == 1)
+		lower_cost_node->target_pos->is_above_center == 1)
 		perform_rr(lst2, lst1, lower_cost_node);
-	if (lower_cost_node->is_above_center == 0 && \
-		lower_cost_node->next_number->is_above_center == 1)
+	else if (lower_cost_node->is_above_center == 0 && \
+		lower_cost_node->target_pos->is_above_center == 0)
 		perform_rrr(lst2, lst1, lower_cost_node);
 	ft_finish_rotation(lst1, lower_cost_node);
 	ft_finish_rotation(lst2, lower_cost_node->target_pos);

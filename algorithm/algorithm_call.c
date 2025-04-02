@@ -6,7 +6,7 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:58:40 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/04/01 16:33:20 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/04/02 18:19:56 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	check_ordered(t_list *lst)
 	if (lst == NULL)
 		return (0);
 	current = lst;
-	while (current)
+	while (current->next_number)
 	{
 		if (current->index > current->next_number->index)
 			return (0);

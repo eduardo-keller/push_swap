@@ -6,7 +6,7 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 13:45:57 by ekeller-          #+#    #+#             */
-/*   Updated: 2025/04/01 15:55:40 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/04/02 17:10:52 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ t_list	*ft_init_b(t_list **lst1, t_list **lst2)
 	update_pos(lst1);
 	update_pos(lst2);
 	ft_target_pos_a(lst1, lst2);
-	cal_cost_b(lst1, lst1);
+	cal_cost_b(lst1, lst2);
 	lower_cost = get_lower_cost_node(lst2);
 	return (lower_cost);
 }

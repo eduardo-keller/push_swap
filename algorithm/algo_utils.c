@@ -6,7 +6,7 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 11:32:49 by ekeller-          #+#    #+#             */
-/*   Updated: 2025/04/01 16:20:54 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/04/02 17:36:56 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_list	*get_lower_cost_node(t_list **lst)
 	lower_cost = current;
 	while (current)
 	{
-		if (lower_cost->cost < current->cost)
+		if (current->cost < lower_cost->cost)
 			lower_cost = current;
 		current = current->next_number;
 	}
@@ -53,13 +53,18 @@ t_list	*get_smallest_node(t_list **lst)
 {
 	t_list	*smallest;
 	t_list	*current;
+	int		temp_min;
 
 	current = *lst;
 	smallest = current;
+	temp_min = current->index;
 	while (current)
 	{
-		if (current->index < smallest->index)
+		if (current->index < temp_min)
+		{
+			temp_min = current->index;
 			smallest = current;
+		}
 		current = current->next_number;
 	}
 	return (smallest);

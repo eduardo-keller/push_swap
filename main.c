@@ -6,7 +6,7 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:28:52 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/04/01 16:15:45 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/04/02 15:48:29 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int argc, char **argv)
 	t_list	*lst_a;
 	t_list	*lst_b;
 
+	lst_a = NULL;
+	lst_b = NULL;
 	validator = input_validator(argc, argv);
 	if (validator == 0)
 	{
