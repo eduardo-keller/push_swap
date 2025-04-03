@@ -2,7 +2,7 @@
 CC = cc
 
 # compilation flags
-CFLAGS = -Wall -Werror -Wextra -g -I.
+CFLAGS = -Wall -Werror -Wextra -I.
 
 # source code
 SRCS = 	main.c stack_builder/input_validator.c utils/split.c utils/split_utils.c utils/validator_utils.c stack_builder/stack_builder.c \

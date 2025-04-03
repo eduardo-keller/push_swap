@@ -6,7 +6,7 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:28:52 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/04/02 15:48:29 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/04/03 12:07:17 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(int argc, char **argv)
 
 	lst_a = NULL;
 	lst_b = NULL;
+	if (argc == 1)
+		return (0);
 	validator = input_validator(argc, argv);
 	if (validator == 0)
 	{
@@ -35,4 +37,25 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	final_algorithm(&lst_a, &lst_b);
+	free_lst(lst_a, lst_b);
+	return (0);
+}
+
+void	free_lst(t_list *lst1, t_list *lst2)
+{
+	t_list	*temp1;
+	t_list	*temp2;
+
+	while (lst1)
+	{
+		temp1 = lst1;
+		lst1 = lst1->next_number;
+		free(temp1);
+	}
+	while (lst2)
+	{
+		temp2 = lst2;
+		lst2 = lst2->next_number;
+		free(temp2);
+	}
 }

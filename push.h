@@ -6,7 +6,7 @@
 /*   By: ekeller-@student.42sp.org.br <ekeller-@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 14:33:48 by ekeller-@st       #+#    #+#             */
-/*   Updated: 2025/04/02 17:11:05 by ekeller-@st      ###   ########.fr       */
+/*   Updated: 2025/04/03 11:58:53 by ekeller-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include <stdio.h>
 
 typedef struct t_list
 {
@@ -102,7 +101,8 @@ void	ft_free_split(char **s, size_t current_word);
 //split_utils.c
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	*ft_calloc(size_t nmemb, size_t size);
-
 long	ft_atol(char *str);
+
+void	free_lst(t_list *lst1, t_list *lst2);
 
 #endif
